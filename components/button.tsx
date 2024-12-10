@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 type CommonButtonProps = {
-  style: 'primary' | 'secondary' | 'minimal' | 'borderless'
+  style: 'primary' | 'secondary' | 'minimal' | 'borderless' | 'auth'
   size?: 'sm' | 'md' | 'lg'
   extraClasses?: string
   children: React.ReactNode
@@ -28,10 +28,11 @@ const BUTTON_STYLES = {
   secondary: 'bg-blue-400 text-secondary border border-secondary rounded-sm tracking-widest hover:bg-secondary hover:text-primary transition-all duration-300',
   minimal: 'bg-secondary text-primary rounded-sm tracking-widest hover:bg-primary hover:text-secondary transition-all duration-300',
   borderless: 'bg-transparent text-secondary tracking-widest hover:bg-secondary hover:text-primary transition-all duration-300',
+  auth: 'bg-white text-primary border border-primary px-12 py-2 rounded-full px-2 justify-between hover:bg-gray-100',
 } as const
 
 const Button: React.FC<ButtonProps> = ({ size = 'md', extraClasses, ...props }) => {
-  const className = `text-center px-4 py-2 ${BUTTON_STYLES[props.style]} ${BUTTON_SIZES[size]} ${extraClasses}`
+  const className = `flex items-center justify-center text-center px-4 py-2 ${BUTTON_STYLES[props.style]} ${BUTTON_SIZES[size]} ${extraClasses}`
 
   switch (props.type) {
     case 'link':
