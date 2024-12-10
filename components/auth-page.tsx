@@ -20,11 +20,11 @@ const authPageValues = {
 const AuthPage = ({ type }: AuthPageProps) => {
   return (
     <div className='flex h-screen'>
-        <div className='relative w-2/5 bg-primary overflow-hidden'>
+        <div className='relative w-96 bg-primary max-lg:hidden'>
             {/*  TODO when the window is resize, it shows that is cropped. Export full SVG and hide the overflow */}
-            <Image src={authPageValues[type].bgImage} alt="logo" width={2000} height={2000} className={`absolute -bottom-[0%] -left-[0%] h-screen ${authPageValues[type].extraClasses}`} />
+            <Image src={authPageValues[type].bgImage} alt="logo" width={2000} height={2000} className={`h-screen object-cover ${authPageValues[type].extraClasses}`} />
         </div>
-        <div className='w-3/5 flex flex-col justify-center bg-secondary px-32 py-24'>
+        <div className='flex-1 flex flex-col justify-center items-center bg-secondary '>
             <AuthForm type={type} />
         </div>
     </div>

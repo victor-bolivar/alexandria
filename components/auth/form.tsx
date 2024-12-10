@@ -21,11 +21,11 @@ type AuthFormProps = {
 
 const AuthForm = ({type}: AuthFormProps) => {
   return (
-    <div className='flex flex-col items-center justify-center bg-white border border-primary rounded-[1.2rem] py-20 px-16 gap-4'>
-      <h1 className='text-primary text-4xl font-semibold'>{authFormValues[type].title}</h1>
-      <Image src='/arrow-right.svg' alt='logo' width={680} height={16} />
+    <div className='flex flex-col items-center justify-center bg-white border border-primary rounded-[1.2rem] py-20 px-16 gap-4 max-w-xl'>
+      <h1 className='text-primary text-3xl md:text-4xl font-semibold'>{authFormValues[type].title}</h1>
+      <Image src='/arrow-right.svg' alt='logo' width={680} height={16} className='w-[80%] md:w-full' />
 
-      <div className='flex flex-col items-center justify-center gap-4 w-full mt-4'>
+      <div className='flex flex-col items-center justify-center gap-4 w-96 mt-4'>
       {
         authProviders.map((provider) => ( 
             <Button type='link' size='md' style='auth' key={provider.name} href={`/auth/${provider.name.toLowerCase()}`} extraClasses='w-[60%] relative'>
